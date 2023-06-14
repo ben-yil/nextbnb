@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import Navbar from "@/components/navbar/Navbar";
 
 import "./globals.css";
+import ToasterProvider from "@/providers/ToasterProvider";
 
 export const metadata = {
   title: "Airbnb",
@@ -21,6 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
+        <ToasterProvider />
         <Navbar />
         <div className="pb-20 pt-28">{children}</div>
       </body>
