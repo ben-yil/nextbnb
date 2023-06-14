@@ -1,7 +1,7 @@
 "use client";
-import Container from "@/app/components/Container";
-import Logo from "@/app/components/navbar/Logo";
-import SearchBarOpen from "@/app/components/navbar/SearchBarOpen";
+import Container from "@/components/Container";
+import Logo from "@/components/navbar/Logo";
+import SearchBarOpen from "@/components/navbar/SearchBarOpen";
 
 interface NavbarProps {}
 
