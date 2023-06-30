@@ -6,11 +6,13 @@ import { useRouter } from "next/navigation";
 
 import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
+import useRegisterModal from "@/hooks/useRegisterModal";
 
 interface UserMenuProps {}
 
 const UserMenu: React.FC<UserMenuProps> = ({}) => {
   const router = useRouter();
+  const registerModal = useRegisterModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -79,7 +81,7 @@ const UserMenu: React.FC<UserMenuProps> = ({}) => {
           <div className="flex flex-col cursor-pointer">
             <>
               <MenuItem label="Login" onClick={() => {}} />
-              <MenuItem label="Sign up" onClick={() => {}} />
+              <MenuItem label="Sign up" onClick={registerModal.onOpen} />
             </>
           </div>
         </div>

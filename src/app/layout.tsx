@@ -4,6 +4,7 @@ import Navbar from "@/components/navbar/Navbar";
 
 import "./globals.css";
 import ToasterProvider from "@/providers/ToasterProvider";
+import RegisterModal from "@/components/modals/RegisterModal";
 
 export const metadata = {
   title: "Airbnb",
@@ -24,6 +25,7 @@ export default async function RootLayout({
       <body className={font.className}>
         <ToasterProvider />
         <Navbar />
+        <RegisterModal />
         <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
