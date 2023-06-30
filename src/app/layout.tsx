@@ -5,6 +5,8 @@ import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
 import ToasterProvider from "@/providers/ToasterProvider";
 import RegisterModal from "@/components/modals/RegisterModal";
+import getCurrentUser from "@/actions/getCurrentUser";
+import LoginModal from "@/components/modals/LoginModal";
 
 export const metadata = {
   title: "Airbnb",
@@ -20,12 +22,15 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={font.className}>
         <ToasterProvider />
-        <Navbar />
+        <Navbar currentUser={currentUser} />
         <RegisterModal />
+        <LoginModal />
         <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
