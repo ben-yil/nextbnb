@@ -13,14 +13,6 @@ export default async function getListings(params: IListingsParams) {
   try {
     const { userId, guestCount, locationValue, startDate, endDate, category } =
       params;
-    console.log(
-      userId,
-      guestCount,
-      locationValue,
-      startDate,
-      endDate,
-      category
-    );
 
     let query: any = {};
 

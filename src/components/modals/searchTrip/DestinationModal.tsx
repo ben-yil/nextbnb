@@ -24,7 +24,7 @@ const DestinationModal: React.FC = ({}) => {
       dynamic(() => import("../../../components/Map"), {
         ssr: false,
       }),
-    [destination]
+    []
   );
 
   const selectHandler = (destination: CountrySelectValue) => {
@@ -62,6 +62,7 @@ const DestinationModal: React.FC = ({}) => {
     >
       {filteredResults.map((result) => (
         <div
+        key={result.label}
           className="flex flex-row align-center items-center mb-2 hover:bg-neutral-200 min-w-max py-3"
           onClick={() => {
             selectHandler(result);
@@ -108,6 +109,7 @@ const DestinationModal: React.FC = ({}) => {
       </div>
       {suggestedDestinations.map((suggestedDestination) => (
         <div
+        key={suggestedDestination.label}
           className="flex-col flex relative w-32 "
           onClick={() => {
             selectHandler(suggestedDestination);
