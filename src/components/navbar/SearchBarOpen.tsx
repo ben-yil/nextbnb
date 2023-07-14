@@ -5,11 +5,18 @@ import { useMemo } from "react";
 import { BiSearch } from "react-icons/bi";
 import { differenceInDays } from "date-fns";
 
+import useSearchModal from "@/hooks/searchTrip/useSearchModal";
 import useCountries from "@/hooks/useCountries";
-
+import useDestinationModal from "@/hooks/searchTrip/useDestinationModal";
+import useGuestModal from "@/hooks/searchTrip/useGuestModal";
+import useCalendarModal from "@/hooks/searchTrip/useCalendarModal";
 
 const SearchBarOpen = () => {
- 
+  const searchModal = useSearchModal();
+  const destinationModal = useDestinationModal();
+  const calendarModal = useCalendarModal();
+  const guestModal = useGuestModal();
+
   const params = useSearchParams();
   const { getByValue } = useCountries();
 
@@ -82,6 +89,7 @@ const SearchBarOpen = () => {
             rounded-full
             
             "
+          onClick={destinationModal.onOpen}
         >
           {locationLabel}
         </div>
@@ -96,6 +104,7 @@ const SearchBarOpen = () => {
             flex-1 
             text-center
           "
+          onClick={calendarModal.onOpen}
         >
           {durationLabel}
         </div>
@@ -110,6 +119,7 @@ const SearchBarOpen = () => {
             items-center 
             gap-3
           "
+          onClick={guestModal.onOpen}
         >
           <div className="hidden sm:block">{guestLabel}</div>
           <div
@@ -119,7 +129,10 @@ const SearchBarOpen = () => {
               rounded-full 
               text-white
             "
-           
+            onClick={(e) => {
+              e.stopPropagation();
+              destinationModal.onOpen();
+            }}
           >
             <BiSearch size={18} />
           </div>

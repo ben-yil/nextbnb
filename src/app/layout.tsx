@@ -8,6 +8,9 @@ import RegisterModal from "@/components/modals/RegisterModal";
 import getCurrentUser from "@/actions/getCurrentUser";
 import LoginModal from "@/components/modals/LoginModal";
 import RentModal from "@/components/modals/RentModal";
+import DestinationModal from "@/components/modals/searchTrip/DestinationModal";
+import CalendarModal from "@/components/modals/searchTrip/CalendarModal";
+import GuestModal from "@/components/modals/searchTrip/GuestModal";
 
 export const metadata = {
   title: "Airbnb",
@@ -28,12 +31,15 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <ToasterProvider />
-        <Navbar currentUser={currentUser} />
-        <RegisterModal />
-        <LoginModal />
-        <RentModal />
-        <div className="pb-20 pt-28">{children}</div>
+          <ToasterProvider />
+          <Navbar currentUser={currentUser} />
+          <RegisterModal />
+          <LoginModal />
+          <RentModal />
+          <DestinationModal />
+          <CalendarModal />
+          <GuestModal />
+          <div className="pb-20 pt-28">{children}</div>
       </body>
     </html>
   );

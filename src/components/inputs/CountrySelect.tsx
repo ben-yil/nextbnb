@@ -5,11 +5,11 @@ import Select from 'react-select'
 import useCountries from '@/hooks/useCountries';
 
 export type CountrySelectValue = {
-  flag: string;
+  flag?: string;
   label: string;
-  latlng: number[],
-  region: string;
-  value: string
+  latlng?: number[],
+  region?: string;
+  value?: string
 }
 
 interface CountrySelectProps {
