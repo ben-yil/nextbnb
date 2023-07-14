@@ -118,7 +118,7 @@ const SearchBar = () => {
 
     router.push(url);
     guestModal.onClose();
-  }, [searchModal, router, guestCount, params]);
+  }, [router, guestCount, params,endDate,guestModal,locationValue,startDate]);
 
   return (
     <div
